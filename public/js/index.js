@@ -21,7 +21,7 @@ $(document).ready(function () {
         });
     })
 
-    $('#choosePlan').on("submit", function (event) {
+    $('#choosePlan').on("mouseout", function (event) {
         console.log($("#choosePlan").val());
 
     })

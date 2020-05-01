@@ -35,7 +35,6 @@ app.post("/api/plans", (req, res) => {
 app.get("/api/exercises", (req, res) => {
     db.Exercise.find({})
         .then(dbExercise => {
-            res.json(dbExercise);
             res.redirect("/index.html")
         })
         .catch(err => {
@@ -66,7 +65,7 @@ app.post("/api/exercises", (req, res) => {
     })
         .then(({ _id }) => db.Plan.findOneAndUpdate({ name: planName }, { $push: { exercises: _id } }, { new: true }))
         .then(dbPlan => {
-            res.json(dbPlan);
+            res.redirect("/index.html")
         })
         .catch(err => {
             res.json(err);
