@@ -36,6 +36,7 @@ app.get("/api/exercises", (req, res) => {
     db.Exercise.find({})
         .then(dbExercise => {
             res.json(dbExercise);
+            res.redirect("/index.html")
         })
         .catch(err => {
             res.json(err);

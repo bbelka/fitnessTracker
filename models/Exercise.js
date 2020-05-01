@@ -18,9 +18,9 @@ const ExerciseSchema = new Schema({
     },
     sets: {
         type: Number,
-        // required: function () {
-        //     return this.type === 'weights';
-        // }
+        required: function () {
+            return this.type === 'weights';
+        }
     },
     reps: {
         type: Number,

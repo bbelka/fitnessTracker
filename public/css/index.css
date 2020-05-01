@@ -1,9 +1,11 @@
 #planFormCont,#exercisesFormCont{
- background-color: tomato;   
+ background-color: tomato;
+ padding-bottom: 10px;   
 }
 
 
 
    #planViewCont, #exerciseViewCont{
        background-color: turquoise;
+       padding-bottom: 10px;
    }

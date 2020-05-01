@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     $.ajax({
@@ -19,26 +21,73 @@ $(document).ready(function () {
         });
     })
 
-    $('#choosePlan option').change(function (event) {
-        console.log($(this).text());
+    $('#choosePlan').on("submit", function (event) {
+        console.log($("#choosePlan").val());
 
     })
 
+
     $('#planViewBtn').on("click", function () {
         event.preventDefault();
-        console.log("click");
-        console.log($('#choosePlanView').val());
+        $('#exerciseViewCont').empty()
         let planName = $('#choosePlanView').val()
-        console.log(planName);
-
         $.ajax({
             method: "GET",
             url: "/populated/" + planName,
         }).then(function (res) {
+            if(res){$('#exerciseViewCont').removeClass("d-none")}
             let exercises = res.exercises
             console.log(exercises);
             exercises.forEach(exercise => {
-                $('<li class="list-group-item">')
+                const exerciseCardHTML = `
+            <div class="card" style="width: auto;">
+            <div class="card-body">
+            <h3 class="card-title">${exercise.name}</h3>
+            </div>
+             <ul class="list-group list-group-flush" id="exerciseSpec${exercise._id}">
+             </ul>
+            </div>`
+                $('#exerciseViewCont').append(exerciseCardHTML);
+                if (exercise.type) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `type: ${exercise.type}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+                if (exercise.weight) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `weight: ${exercise.weight}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+                if (exercise.reps) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `Reps: ${exercise.reps}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+                if (exercise.sets) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `sets: ${exercise.sets}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+                if (exercise.distance) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `distance: ${exercise.distance}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+                if (exercise.duration) {
+                    const newLI = $('<li class="list-group-item">');
+                    const newtext = `duration: ${exercise.duration}`;
+                    newLI.append(newtext);
+                    $(`#exerciseSpec${exercise._id}`).append(newLI);
+                }
+
+                // console.log(exerciseCardHTML);
+
+                // $('<li class="list-group-item">')
             });
 
 

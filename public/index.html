@@ -35,7 +35,7 @@
             <div class="col">
                 <div class="container" id="planViewCont">
                     <form>
-                        <h3>View a created plan</h3>
+                        <h3>View a created workout</h3>
                         <div class="form-group">
                             <label for="choosePlanView">Plan name</label>
                             <select name="plan" class="form-control" id="choosePlanView">
@@ -53,7 +53,7 @@
                 <div class="container" id="exercisesFormCont">
                     <form action="/api/exercises" method="post">
                         <hr>
-                        <h3>Add exercises to a plan</h3>
+                        <h3>Add exercises to a workout</h3>
                         <div class="form-group">
                             <label for="choosePlan">Plan name</label>
                             <select name="plan" class="form-control" id="choosePlan">
@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group ">
                             <label for="weightsSets">Sets</label>
-                            <input type="number" name:="sets" class="form-control" id="weightsSets" placeholder="3">
+                            <input type="number" name="sets" class="form-control" id="weightsSets" placeholder="3">
                         </div>
                         <div class="form-group ">
                             <label for="weightsReps">Reps</label>
@@ -99,15 +99,8 @@
                 </div>
             </div>
             <div class="col">
-                <div class="container" id="exerciseViewCont">
-                    <div class="card" style="width: auto;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                        <ul class="list-group list-group-flush" id="exerciseSpec">
-                            <!-- <li class="list-group-item">Cras justo odio</li> -->
-                        </ul>
-                    </div>
+                <div class="container d-none" id="exerciseViewCont">
+                    
                 </div>
             </div>
         </div>
