@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="container-md">
+        <h1>Fitness Tracker</h1>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="container" id="planFormCont">
+                    <form action="/api/plans" method="post">
+                        <h3>Name your workout</h3>
+                        <div class="form-group" id="planForm">
+                            <label for="planName">Name your plan</label>
+                            <input type="text" name="name" class="form-control" id="planName" placeholder="Leg Day">
+                        </div>
+                        <input class="btn btn-primary" type="submit">
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="container" id="planViewCont">
+                    <form>
+                        <h3>View a created plan</h3>
+                        <div class="form-group">
+                            <label for="choosePlanView">Plan name</label>
+                            <select name="plan" class="form-control" id="choosePlanView">
+                            </select>
+
+                        </div>
+                        <input class="btn btn-primary" type="submit" id="planViewBtn">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container" id="exercisesFormCont">
+                    <form action="/api/exercises" method="post">
+                        <hr>
+                        <h3>Add exercises to a plan</h3>
+                        <div class="form-group">
+                            <label for="choosePlan">Plan name</label>
+                            <select name="plan" class="form-control" id="choosePlan">
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exerciseType">Exercise type</label>
+                            <select class="form-control" name="type" id="exerciseType">
+                                <option>cardio</option>
+                                <option>weights</option>
+                                <option>yoga</option>
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exerciseNameSelect">Exercise name</label>
+                            <input type="text" name="name" class="form-control" id="exerciseNameSelect"
+                                placeholder="Bicep Curls">
+                        </div>
+                        <div class="form-group ">
+                            <label for="weightsWeight">Weight</label>
+                            <input type="number" name="weight" class="form-control" id="weightsWeight"
+                                placeholder="100">
+                        </div>
+                        <div class="form-group ">
+                            <label for="weightsSets">Sets</label>
+                            <input type="number" name:="sets" class="form-control" id="weightsSets" placeholder="3">
+                        </div>
+                        <div class="form-group ">
+                            <label for="weightsReps">Reps</label>
+                            <input type="number" name="reps" class="form-control" id="weightsReps" placeholder="15">
+                        </div>
+                        <div class="form-group ">
+                            <label for="cardioDistance">Distance (miles)</label>
+                            <input type="number" name="distance" class="form-control" id="distance" placeholder="3">
+                        </div>
+                        <div class="form-group ">
+                            <label for="yogaDuration">Duration (minutes)</label>
+                            <input type="number" name="duration" class="form-control" id="yogaDuration"
+                                placeholder="45">
+                        </div>
+                        <input class="btn btn-primary" type="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container" id="exerciseViewCont">
+                    <div class="card" style="width: auto;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                        <ul class="list-group list-group-flush" id="exerciseSpec">
+                            <!-- <li class="list-group-item">Cras justo odio</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
